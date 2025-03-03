@@ -6,4 +6,4 @@ WIN_WIDTH = 550
 window = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT))
 
 ground = components.Ground(WIN_WIDTH)
-pipes = []
+pipes: list[components.Pipes] = []

@@ -4,10 +4,11 @@ import config
 from components import Pipes
 import population
 
+SIZE = 100
 p: Pipes
 pygame.init()
 clock = pygame.time.Clock()
-population = population.Population()
+population = population.Population(SIZE)
 
 
 def generate_pipes():
@@ -47,7 +48,8 @@ def main():
             if p.off_screen:
                 config.pipes.remove(p)
         
-        population.update_live_players(events)
+        if not population.extinct():
+            population.update_live_players(events)
 
         clock.tick(90)
         pygame.display.flip()
